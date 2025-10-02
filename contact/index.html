@@ -15,6 +15,26 @@
     </nav>
 
     <h1> Contact</h1>
-    <p> You can reach me at lan019@ucsd.edu or via GitHub.</p>
+    <p> You can reach me via this contact form:</p> 
+
+    <form action = 'malto:lan019@ucsd.edu' method = 'POST' enctype = 'text/plain'>
+        <label> 
+            Your Email: 
+            <input type = 'email' name = 'email' value = 'foo@example.com'>
+        </label>
+        <br><br>
+
+        <label>
+            Subject: 
+            <input name = 'subject' value = 'Hello!'>
+        </label>
+        <br><br>
+
+        <label>
+            Message:
+            <textarea name = 'body'>Type your message here...</textarea>
+        </label>
+        <br><br>
+    </form>
 </body>
 </html>
