@@ -55,14 +55,19 @@ button {
 form { 
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1em;
+  row-gap: 1em;
+  column-gap: 1em;
   max-width: 50ch;
 }
 
 label { 
-  display: grid;
+  display: contents;
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
+}
+
+button { 
+  margin-top: 1em;
 }
 
 input,
@@ -74,20 +79,15 @@ textarea {
 
 button { 
   grid-column: 1 / -1;
-  justify-self:start; 
-  padding: 0.5em 1em;
-}
-
-button { 
-  grid-column: 1 / -1;
   padding: 0.75em;
   border: none;
-  background-color: oklch(56.495% 0.11639 21.417);
+  background-color: oklch(48.655% 0.10842 21.878);
   color: white;
   font-weight: bold;
   border-radius: 0.3em;
   cursor: pointer;
 }
+
 
 button:hover { 
   background-color: oklch(from oklch(48.478% 0.10981 21.983) 75% 40% h);
