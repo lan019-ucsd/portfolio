@@ -42,6 +42,6 @@ nav a.current{
 }
 
 nav a:hover { 
-  border-bottom: 0.4em solid oklch(77.457% 0.04242 153.012);
-  background-color: oklch(from oklch(52.477% 0.03125 156.765) 95% 5% h);
+  border-bottom: 0.4em solid oklch(78.852% 0.01996 152.953);
+  background-color: oklch(from oklch(37.211% 0.01042 156.895) 95% 5% h);
 }
