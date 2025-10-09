@@ -76,7 +76,7 @@ button {
   grid-column: 1 / -1;
   padding: 0.75em;
   border: none;
-  background-color: oklch(65% 50% 0);
+  background-color: oklch(56.495% 0.11639 21.417);
   color: white;
   font-weight: bold;
   border-radius: 0.3em;
@@ -84,5 +84,5 @@ button {
 }
 
 button:hover { 
-  background-color: oklch(from oklch( 65% 50% 0) 75% 40% h);
+  background-color: oklch(from oklch(48.478% 0.10981 21.983) 75% 40% h);
 }
