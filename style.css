@@ -90,3 +90,36 @@ button {
 button:hover { 
   background-color: oklch(from oklch(48.478% 0.10981 21.983) 75% 40% h);
 }
+
+.projects { 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+  margin-block: 2em;
+}
+
+.projects article { 
+  display: grid;
+  grid-template-rows: subgrid;
+  gap: 0.5em;
+  grid-row: span 3;
+}
+
+.projects article h2 { 
+  margin: 0;
+}
+
+.projects article img { 
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h1 { 
+  font-size: 4em;
+}
