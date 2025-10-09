@@ -69,7 +69,13 @@ input,
 textarea { 
   width: 100%;
   box-sizing: border-box; 
-  padding: 1em;
+  padding: 0.5em;
+}
+
+button { 
+  grid-column: 1 / -1;
+  justify-self:start; 
+  padding: 0.5em 1em;
 }
 
 button { 
