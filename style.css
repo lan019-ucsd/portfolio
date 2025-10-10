@@ -2,6 +2,8 @@
   box-sizing: border-box
 }
 
+/* All Pages */ 
+
 body {
   /* Set line height to 1.5 times the font size
 	   and use the OS’s UI font as the website font
@@ -12,8 +14,6 @@ body {
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding-block: 1rem;
 }
-
-/* Contact */
 
 img { 
   max-width: 100%;
@@ -48,7 +48,16 @@ nav a:hover {
   background-color: oklch(from oklch(36.472% 0.14544 28.599) 95% 5% h);
 }
 
-/* Projects */
+h1, h2, h3, h4, h5, h6 { 
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h1 { 
+  font-size: 3em;
+}
+
+/* Contact Form */
 
 input,
 textarea,
@@ -95,6 +104,8 @@ button:hover {
   background-color: oklch(from oklch(48.478% 0.10981 21.983) 75% 40% h);
 }
 
+/* Projects */ 
+
 .projects { 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
@@ -119,65 +130,87 @@ button:hover {
   display: block;
 }
 
-h1, h2, h3, h4, h5, h6 { 
-  line-height: 1.1;
-  text-wrap: balance;
-}
-
-h1 { 
-  font-size: 4em;
-}
-
 /* CV */
 
-body { 
-  max-width: 90ch;
-  margin-inline: auto;
+.cv-page { 
+  max-width: 900px;
+  margin: auto;
   padding: 2em;
+  font-family: system-ui, sans-serif;
 }
 
-h1 { 
-  font-size 2.5rem;
-  margin-bottom: 0.25em;
-  color: oklch(43.856% 0.0343 51.198);
+.cv-header hr { 
+  border: none;
+  border-top: 2px solid rgb(188, 12, 12);
+  margin: 0.5em 0 1em 0;
+  width: 50%;
 }
 
-h2 {
-  font-size: 1.75rem;
-  margin-top: 1.5em;
-  border-bottom: 2px solid oklch(56.892% 0.02164 279.213);
-  padding-bottom: 0.25em;
+.cv-header h1 { 
+  font-size: 2.5rem;
+  margin-bottom: 0.2em;
+  color: rgb(88, 8, 8)
 }
 
-h3 { 
-  font-size:1.2rem;
-  margin-bottom: 0.25em;
-}
-
-section { 
+.contact-info { 
+  display: flex;
+  gap: 2em;
+  font-size: 0.9rem;
   margin-bottom: 1.5em;
+  color: rgb(188, 12, 12);
+  flex-wrap: wrap;
 }
 
-ul { 
-  margin-left: 1.5em;
-  line-height: 1.5;
+.contact-info span { 
+  background-color: rgb(188, 12, 12);
+  padding: 0.3em 0.6em;
+  border-radius: 5px;
 }
 
-time { 
-  display: block;
+h2 { 
+  font-size: 1.75rem;
+  border-bottom: 2px solid rgb(47, 23, 5);
+  padding-bottom: 0.25em;
+  margin-top: 2em;
+  color: rgb(59, 61, 100);
+}
+
+.cv-entry { 
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1em;
+  margin: 1em 0;
+}
+
+.cv-entry time { 
   font-style: italic;
-  color: oklch(38.596% 0.06577 282.884);
+  color: rgb(25, 72, 154);
+}
+
+.cv-entry .cv-content h3 { 
+  margin: 0;
+  font-weight: bold;
+  color: rgb(78, 4, 4);
+}
+
+.cv-entry .cv-content ul { 
+  margin: 0.25em 0 0 0;
+  padding-left: 1em;
+}
+
+ul li { 
+  margin-bottom: 0.25em;
 }
 
 /* Home */
 .car-gallery { 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1em;
+  gap: 0.5em;
   justify-items: center;
 }
 
-.car-gallery { 
+.car-gallery img { 
   display: block;
   border-radius: 0.5em;
 }
