@@ -8,8 +8,9 @@ body {
   /* Set line height to 1.5 times the font size
 	   and use the OS’s UI font as the website font
 	 */
-  font: 100%/1.5 system-ui;
-
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 100%;
+  line-height: 1.5;
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding-block: 1rem;
@@ -54,7 +55,116 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { 
-  font-size: 3em;
+  font-size: 2em;
+  color:rgb(123, 38, 38);
+  margin-bottom: 0.5em;
+}
+
+/* Home */
+.car-gallery { 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.5em;
+  justify-items: center;
+}
+
+.car-gallery img { 
+  display: block;
+  border-radius: 0.5em;
+  width: 100%;
+  height: auto;
+}
+
+/* Projects */ 
+
+.projects { 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+  margin-block: 2em;
+}
+
+.projects article { 
+  display: grid;
+  grid-template-rows: subgrid;
+  gap: 0.5em;
+  grid-row: span 3;
+}
+
+.projects article h2 { 
+  margin: 0;
+}
+
+.projects article img { 
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* CV */
+
+.cv-page { 
+  max-width: 900px;
+  margin: auto;
+  padding: 2em;
+  font-family: system-ui, sans-serif;
+}
+
+.cv-header hr { 
+  border: none;
+  border-top: 1px solid rgb(188, 12, 12);
+  margin: 0.5em 0 1em 0;
+  width: 50%;
+}
+
+.contact-info { 
+  display: flex;
+  gap: 2em;
+  font-size: 0.9rem;
+  margin-bottom: 1.5em;
+  color: rgb(6, 0, 0);
+  flex-wrap: wrap;
+}
+
+.contact-info .icon { 
+  color: rgb(188, 12, 12);
+  margin-right: 0.3em;
+  font-size: 1.1em;
+}
+
+h2 { 
+  font-size: 1.75rem;
+  border-bottom: 2px solid rgb(47, 23, 5);
+  padding-bottom: 0.25em;
+  margin-top: 2em;
+  color: rgb(59, 61, 100);
+}
+
+.cv-entry { 
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1em;
+  margin: 1em 0;
+}
+
+.cv-entry time { 
+  font-style: italic;
+  color: rgb(25, 72, 154);
+}
+
+.cv-entry .cv-content h3 { 
+  margin: 0;
+  font-weight: bold;
+  color: rgb(78, 4, 4);
+}
+
+.cv-entry .cv-content ul { 
+  margin: 0.25em 0 0 0;
+  padding-left: 1em;
+}
+
+ul li { 
+  margin-bottom: 0.25em;
 }
 
 /* Contact Form */
@@ -104,113 +214,5 @@ button:hover {
   background-color: oklch(from oklch(48.478% 0.10981 21.983) 75% 40% h);
 }
 
-/* Projects */ 
 
-.projects { 
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  gap: 1em;
-  margin-block: 2em;
-}
 
-.projects article { 
-  display: grid;
-  grid-template-rows: subgrid;
-  gap: 0.5em;
-  grid-row: span 3;
-}
-
-.projects article h2 { 
-  margin: 0;
-}
-
-.projects article img { 
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* CV */
-
-.cv-page { 
-  max-width: 900px;
-  margin: auto;
-  padding: 2em;
-  font-family: system-ui, sans-serif;
-}
-
-.cv-header hr { 
-  border: none;
-  border-top: 2px solid rgb(188, 12, 12);
-  margin: 0.5em 0 1em 0;
-  width: 50%;
-}
-
-.cv-header h1 { 
-  font-size: 2.5rem;
-  margin-bottom: 0.2em;
-  color: rgb(88, 8, 8)
-}
-
-.contact-info { 
-  display: flex;
-  gap: 2em;
-  font-size: 0.9rem;
-  margin-bottom: 1.5em;
-  color: rgb(188, 12, 12);
-  flex-wrap: wrap;
-}
-
-.contact-info span { 
-  background-color: rgb(188, 12, 12);
-  padding: 0.3em 0.6em;
-  border-radius: 5px;
-}
-
-h2 { 
-  font-size: 1.75rem;
-  border-bottom: 2px solid rgb(47, 23, 5);
-  padding-bottom: 0.25em;
-  margin-top: 2em;
-  color: rgb(59, 61, 100);
-}
-
-.cv-entry { 
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 1em;
-  margin: 1em 0;
-}
-
-.cv-entry time { 
-  font-style: italic;
-  color: rgb(25, 72, 154);
-}
-
-.cv-entry .cv-content h3 { 
-  margin: 0;
-  font-weight: bold;
-  color: rgb(78, 4, 4);
-}
-
-.cv-entry .cv-content ul { 
-  margin: 0.25em 0 0 0;
-  padding-left: 1em;
-}
-
-ul li { 
-  margin-bottom: 0.25em;
-}
-
-/* Home */
-.car-gallery { 
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0.5em;
-  justify-items: center;
-}
-
-.car-gallery img { 
-  display: block;
-  border-radius: 0.5em;
-}
