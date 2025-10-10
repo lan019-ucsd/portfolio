@@ -26,7 +26,7 @@ img {
 nav { 
   display: flex;
   justify-content: space-around;
-  border-bottom: 1px solid oklch(80% 3% 200);
+  border-bottom: 1px solid oklch(76.768% 0.01802 206.072);
   margin-bottom: 1em;
   padding-bottom: 0.5em
 }
@@ -40,13 +40,13 @@ nav a {
 }
 
 nav a.current{
-  border-bottom: 0.4em solid oklch(80% 3% 200);
+  border-bottom: 0.4em solid oklch(99.281% 0.00654 209.662);
   padding-bottom: 0.1em;
 }
 
 nav a:hover { 
-  border-bottom: 0.4em solid oklch(71.638% 0.08966 22.076);
-  background-color: oklch(from oklch(36.472% 0.14544 28.599) 95% 5% h);
+  border-bottom: 0.4em solid oklch(42.878% 0.11233 23.045);
+  background-color: oklch(from oklch(52.877% 0.07285 19.74) 95% 5% h);
 }
 
 h1, h2, h3, h4, h5, h6 { 
@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { 
   font-size: 2em;
-  color:rgb(123, 38, 38);
+  color:rgb(130, 16, 16);
   margin-bottom: 0.5em;
 }
 
@@ -137,7 +137,7 @@ h2 {
   border-bottom: 2px solid rgb(47, 23, 5);
   padding-bottom: 0.25em;
   margin-top: 2em;
-  color: rgb(59, 61, 100);
+  color: rgb(117, 41, 41);
 }
 
 .cv-entry { 
@@ -149,7 +149,7 @@ h2 {
 
 .cv-entry time { 
   font-style: italic;
-  color: rgb(25, 72, 154);
+  color: rgb(158, 0, 0);
 }
 
 .cv-entry .cv-content h3 { 
