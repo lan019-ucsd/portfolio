@@ -13,6 +13,8 @@ body {
   padding-block: 1rem;
 }
 
+/* Contact */
+
 img { 
   max-width: 100%;
   height: auto;
@@ -45,6 +47,8 @@ nav a:hover {
   border-bottom: 0.4em solid oklch(71.638% 0.08966 22.076);
   background-color: oklch(from oklch(36.472% 0.14544 28.599) 95% 5% h);
 }
+
+/* Projects */
 
 input,
 textarea,
@@ -122,4 +126,58 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { 
   font-size: 4em;
+}
+
+/* CV */
+
+body { 
+  max-width: 90ch;
+  margin-inline: auto;
+  padding: 2em;
+}
+
+h1 { 
+  font-size 2.5rem;
+  margin-bottom: 0.25em;
+  color: oklch(43.856% 0.0343 51.198);
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-top: 1.5em;
+  border-bottom: 2px solid oklch(56.892% 0.02164 279.213);
+  padding-bottom: 0.25em;
+}
+
+h3 { 
+  font-size:1.2rem;
+  margin-bottom: 0.25em;
+}
+
+section { 
+  margin-bottom: 1.5em;
+}
+
+ul { 
+  margin-left: 1.5em;
+  line-height: 1.5;
+}
+
+time { 
+  display: block;
+  font-style: italic;
+  color: oklch(38.596% 0.06577 282.884);
+}
+
+/* Home */
+.car-gallery { 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1em;
+  justify-items: center;
+}
+
+.car-gallery { 
+  display: block;
+  border-radius: 0.5em;
 }
