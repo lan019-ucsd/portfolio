@@ -12,6 +12,7 @@ body {
   font-size: 100%;
   line-height: 1.5;
   max-width: 100ch;
+  position: relative;
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding-block: 1rem;
 }
