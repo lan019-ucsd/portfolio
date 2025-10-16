@@ -27,10 +27,25 @@ for (let p of pages) {
   url = !url.startsWith('http') ? BASE_PATH + url : url;
 
   let a = document.createElement('a');
-a.href = url;
-a.textContent = title;
-nav.append(a);
+  a.href = url;
+  a.textContent = title;
+  nav.append(a);
 }
+
+/* Dark Mode */
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+	<label class="color-scheme">
+		Theme:
+		<select>
+			<option value = 'light dark'>Automatic</option>
+      <option value = 'light'>Light</option>
+      <option value = 'dark'>Dark</option
+		</select>
+	</label>`,
+);
+
 
 let navLinks = $$('nav a');
 
@@ -42,3 +57,5 @@ for (let a of navLinks) {
 }
 
 currentLink?.classList.add('current');
+
+
