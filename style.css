@@ -28,7 +28,9 @@ nav {
   justify-content: space-around;
   border-bottom: 1px solid oklch(76.768% 0.01802 206.072);
   margin-bottom: 1em;
-  padding-bottom: 0.5em
+  padding-bottom: 0.5em;
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav a { 
@@ -58,6 +60,13 @@ h1 {
   font-size: 2em;
   color:rgb(130, 16, 16);
   margin-bottom: 0.5em;
+}
+
+/* Dark Mode */
+html { 
+  color-scheme: light dark;
+  background-color: canvas;
+  color: canvastext;
 }
 
 /* Home */
@@ -213,6 +222,5 @@ button {
 button:hover { 
   background-color: oklch(from oklch(48.478% 0.10981 21.983) 75% 40% h);
 }
-
 
 
