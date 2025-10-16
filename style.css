@@ -69,7 +69,19 @@ html {
   color: canvastext;
 }
 
+.color-scheme { 
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size:0.8em;
+  font-family: inherit;
+  z-index: 1000;
+}
 
+.color-scheme select { 
+  font-size: 0.8em;
+  font-family: inherit;
+}
 
 /* Home */
 .car-gallery { 
