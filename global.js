@@ -47,6 +47,11 @@ document.body.insertAdjacentHTML(
   `
 );
 
+select.addEventListener('input', function (event) {
+  console.log('color scheme changed to', event.target.value);
+  document.documentElement.style.setProperty('color-scheme', event.target.value);
+});
+
 let navLinks = $$('nav a');
 
 for (let a of navLinks) { 
