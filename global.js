@@ -24,9 +24,7 @@ for (let p of pages) {
   let url = p.url;
   let title = p.title;
 
-  if (!url.startsWith('http')) { 
-    url = BASE_PATH + url;
-  }
+  url = !url.startsWith('http') ? BASE_PATH + url : url;
 
   nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
 }
