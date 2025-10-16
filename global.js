@@ -4,8 +4,7 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-const BASE_PATH = 
-location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+const BASE_PATH = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
   ? '/' 
   : '/portfolio/';
 
@@ -17,40 +16,34 @@ let pages = [
   { url: 'https://github.com/lan019-ucsd/portfolio/', title: 'Profile'}
 ];
 
+/* Create Nav */
 let nav = document.createElement('nav');
 document.body.prepend(nav);
 
 for (let p of pages) {
-  let url = p.url;
-  let title = p.title;
-
-  url = !url.startsWith('http') ? BASE_PATH + url : url;
-
+  let url = !p.url.startsWith('http') ? BASE_PATH + p.url : p.url;
   let a = document.createElement('a');
   a.href = url;
-  a.textContent = title;
+  a.textContent = p.title;
   nav.append(a);
 }
 
+/* Highlight current link */
 let navLinks = $$('nav a');
-
 for (let a of navLinks) { 
-  a.classList.toggle( 
-    'current',
-    a.host === location.host && a.pathname === location.pathname
-  );
+  a.classList.toggle('current', a.host === location.host && a.pathname === location.pathname);
 }
 
-/* Dark Mode */
+/* Dark Mode Switch */
 document.body.insertAdjacentHTML(
   'afterbegin',
   `
   <label class="color-scheme">
     Theme:
     <select>
-      <option value = "light dark">Automatic</option>
-      <option value = "light">Light</option>
-      <option value = "dark">Dark</option>
+      <option value="light dark">Automatic</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
     </select>
   </label>
   `
@@ -58,11 +51,20 @@ document.body.insertAdjacentHTML(
 
 const select = document.querySelector('.color-scheme select');
 
-select.addEventListener('input', function (event) {
+function setColorScheme(scheme) { 
+  document.documentElement.style.setProperty('color-scheme', scheme);
+  select.value = scheme;
+}
+
+if ('colorScheme' in localStorage) { 
+  setColorScheme(localStorage.colorScheme);
+} else { 
+  setColorScheme('light dark');
+}
+
+select.addEventListener('input', function(event) {
+  const scheme = event.target.value;
+  document.documentElement.style.setProperty('color-scheme', scheme);
+  localStorage.colorScheme = scheme;
   console.log('color scheme changed to', event.target.value);
-  document.documentElement.style.setProperty('color-scheme', event.target.value);
 });
-
-
-
-
