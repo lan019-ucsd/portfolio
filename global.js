@@ -41,11 +41,11 @@ document.body.insertAdjacentHTML(
 		<select>
 			<option value = 'light dark'>Automatic</option>
       <option value = 'light'>Light</option>
-      <option value = 'dark'>Dark</option
+      <option value = 'dark'>Dark</option>
 		</select>
-	</label>`,
+	</label>
+  `
 );
-
 
 let navLinks = $$('nav a');
 
