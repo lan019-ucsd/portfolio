@@ -32,6 +32,15 @@ for (let p of pages) {
   nav.append(a);
 }
 
+let navLinks = $$('nav a');
+
+for (let a of navLinks) { 
+  a.classList.toggle( 
+    'current',
+    a.host === location.host && a.pathname === location.pathname
+  );
+}
+
 /* Dark Mode */
 document.body.insertAdjacentHTML(
   'afterbegin',
@@ -47,20 +56,13 @@ document.body.insertAdjacentHTML(
   `
 );
 
+const select = document.querySelector('.color-scheme select');
+
 select.addEventListener('input', function (event) {
   console.log('color scheme changed to', event.target.value);
   document.documentElement.style.setProperty('color-scheme', event.target.value);
 });
 
-let navLinks = $$('nav a');
 
-for (let a of navLinks) { 
-  a.classList.toggle( 
-    'current',
-    a.host === location.host && a.pathname === location.pathname
-  );
-}
-
-currentLink?.classList.add('current');
 
 

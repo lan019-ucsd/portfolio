@@ -52,24 +52,12 @@ nav a:hover {
   background-color: oklch(in oklch, oklch(52.877% 0.07285 19.74), canvas 85%);
 }
 
-h1, h2, h3, h4, h5, h6 { 
-  line-height: 1.1;
-  text-wrap: balance;
-}
-
-h1 { 
-  font-size: 2em;
-  color:rgb(130, 16, 16);
-  margin-bottom: 0.5em;
-}
-
 /* Dark Mode */
 html { 
   color-scheme: light dark;
   background-color: canvas;
   color: canvastext;
 }
-
 
 .color-scheme { 
   position: absolute;
@@ -83,6 +71,17 @@ html {
 .color-scheme select { 
   font-size: 0.8em;
   font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h1 { 
+  font-size: 2em;
+  color:rgb(130, 16, 16);
+  margin-bottom: 0.5em;
 }
 
 /* Home */
