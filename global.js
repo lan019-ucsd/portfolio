@@ -68,3 +68,21 @@ select.addEventListener('input', function(event) {
   localStorage.colorScheme = scheme;
   console.log('color scheme changed to', event.target.value);
 });
+
+/* Contact */
+
+const form = document.querySelector('form');
+
+form?.addEventListener('submit', function(event) { 
+  event.preventDefault();
+
+  const data = new FormData(form);
+  const params = [];
+
+  for (let [name, value] of data) { 
+    params.push(`${name} = {encodeURIComponent(value)}`);
+  }
+
+  const url = `${form.action}?${params.join(`&`)}`;
+  location.href = url;
+});
