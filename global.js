@@ -70,7 +70,6 @@ select.addEventListener('input', function(event) {
 });
 
 /* Contact */
-
 const form = document.querySelector('form');
 
 form?.addEventListener('submit', function(event) { 
