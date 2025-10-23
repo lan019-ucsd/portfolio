@@ -85,3 +85,36 @@ form?.addEventListener('submit', function(event) {
   const url = `${form.action}?${params.join(`&`)}`;
   location.href = url;
 }); 
+
+export async function fetchJSON(path) { 
+
+  try { 
+    const res = await fetch(path);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+    return await res.json();
+  } catch (error) { 
+    console.error('Error fetching or parsing JSON data:', error);
+    return [];
+  }
+}
+
+export function renderProjects(projects, containerElement, headinglevel = 'h2') { 
+  if (!containerElement || !Array.isArray(projects)) return;
+
+  containerElement.innerHTML = '';
+
+  const validHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  if (!validHeadings.includes(headinglevel.Level.toLoweraCase())) headlevel = 'h2';  
+
+  projects.forEach(project => { 
+    const article = document.createElement('article');
+    article.innerHTML = `
+    <${headingLevel}>${project.title || 'Untitled Project'}</${headingLevel}>
+    <img src = "${project.image || 'default.jpg'}" alt = "${project.title || 'Project Image'}" >
+    <p> ${project.description || 'No description available.'} </p>
+    `;
+    containerElement.appendChild(article);
+  });
+}
