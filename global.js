@@ -86,13 +86,12 @@ form?.addEventListener('submit', function(event) {
   location.href = url;
 }); 
 
+/* Fetch JSON */
 export async function fetchJSON(path) { 
 
   try { 
     const res = await fetch(path);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch projects: ${response.statusText}`);
-    }
+    if (!res.ok) throw new Error (`Failed to fetch projects ${path}: ${res.statusText}`);
     return await res.json();
   } catch (error) { 
     console.error('Error fetching or parsing JSON data:', error);
@@ -100,20 +99,20 @@ export async function fetchJSON(path) {
   }
 }
 
-export function renderProjects(projects, containerElement, headinglevel = 'h2') { 
+export function renderProjects(projects, containerElement, headingLevel = 'h2') { 
   if (!containerElement || !Array.isArray(projects)) return;
 
   containerElement.innerHTML = '';
 
   const validHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-  if (!validHeadings.includes(headinglevel.Level.toLoweraCase())) headlevel = 'h2';  
+  if (!validHeadings.includes(headingLevel.toLoweraCase())) headingLevel = 'h2';  
 
   projects.forEach(project => { 
     const article = document.createElement('article');
     article.innerHTML = `
-    <${headingLevel}>${project.title || 'Untitled Project'}</${headingLevel}>
-    <img src = "${project.image || 'default.jpg'}" alt = "${project.title || 'Project Image'}" >
-    <p> ${project.description || 'No description available.'} </p>
+      <${headingLevel}>${project.title || 'Untitled Project'}</${headingLevel}>
+      <img src = "${project.image || 'default.jpg'}" alt = "${project.title || 'Project Image'}">
+      <p> ${project.description || 'No description available.'} </p>
     `;
     containerElement.appendChild(article);
   });
