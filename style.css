@@ -126,9 +126,14 @@ html {
 .projects article { 
   display: grid;
   grid-template-rows: subgrid;
-  gap: 0.5em;
-  grid-row: span 3;
+  gap: 0.3em;
+  grid-row: span 4;
+  border-top: 2px solid rgb(14, 11, 10);
 }
+
+
+
+
 
 .projects article h2 { 
   margin: 0;
