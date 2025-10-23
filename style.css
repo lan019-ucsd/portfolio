@@ -253,4 +253,21 @@ button:hover {
   background-color: oklch(from oklch(48.478% 0.10981 21.983) 75% 40% h);
 }
 
+/* Github */
 
+#profile-stats dl { 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  gap: 0.5rem 1rem;
+}
+
+#profile-stats dt { 
+  grid-row: 1;
+  font-weight: bold;
+}
+
+#profile-stats dd { 
+  grid-row: 2;
+  margin: 0
+}
