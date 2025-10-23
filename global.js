@@ -11,6 +11,7 @@ const BASE_PATH = location.hostname === 'localhost' || location.hostname === '12
 let pages = [
   { url: '', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
+  { url: 'project2', title: 'Project 2'},
   { url: 'contact/', title: 'Contact'},
   { url: 'cv/', title: 'CV'},
   { url: 'https://github.com/lan019-ucsd/portfolio/', title: 'Profile'}
@@ -105,7 +106,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
   containerElement.innerHTML = '';
 
   const validHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-  if (!validHeadings.includes(headingLevel.toLoweraCase())) headingLevel = 'h2';  
+  if (!validHeadings.includes(headingLevel.toLowerCase())) headingLevel = 'h2';  
 
   projects.forEach(project => { 
     const article = document.createElement('article');
@@ -121,3 +122,4 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
 }
+
