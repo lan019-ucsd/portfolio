@@ -30,19 +30,19 @@ for (let d of data) {
   angle = endAngle;
 }
 
-let arcGenerator = d3.arc().innerRadius(0).outRadius(50);
+let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 
 let arcs = arcData.map((d) => arcGenerator(d));
 
 let svg = d3.select('svg')
-    .attr('width', 120)
-    .attr('height', 120)
-    .append('g')
-    .attr('transform', 'translate(60, 60');
+  .attr('width', 120)
+  .attr('height', 120)
+  .append('g')
+  .attr('transform', 'translate(60, 60)');
 
 let colors = ['red', 'blue'];
 
-arcs.forEach((arc, i => {
+arcs.forEach(arc, i => {
   svg.append('path')
      .attr('d', arcPath)
      .attr('fill', colors[i]);
