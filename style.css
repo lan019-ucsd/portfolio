@@ -149,12 +149,19 @@ html {
   height: auto
 }
 
-.legend-container{ 
-  background-color: #f8f5f5;
-  padding: 1em;
-  border-radius: 0.5em;
-  display: inline-block;
+.pie-legend-container { 
+  display: flex;
+  align-items: flex-start;
+  gap: 2em;
   margin-top: 1em;
+  flex-wrap: wrap;
+}
+
+.legend { 
+  flex: 1;
+  background-color: #f0f0f0;
+  padding: 1em;
+  border-radius: 0.2em;
 }
 
 .legend { 
@@ -162,8 +169,8 @@ html {
   flex-wrap: wrap;
   gap: 1em;
   list-style: none;
-  padding: 0; 
-  margin: 0; 
+  padding: 1; 
+  margin: 1; 
 }
 
 .legend li { 
@@ -178,6 +185,11 @@ html {
   background-color: var(--color);
   display: inline-block;
   border-radius: 0.2em;
+}
+
+.container { 
+  display flex;
+  align-items: flex-start;
 }
 
 /* CV */
