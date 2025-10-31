@@ -141,6 +141,45 @@ html {
   display: block;
 }
 
+#projects-plot { 
+  display: block;
+  margin: 2em auto;
+  width: 12em;
+  max-width: 100%;
+  height: auto
+}
+
+.legend-container{ 
+  background-color: #f8f5f5;
+  padding: 1em;
+  border-radius: 0.5em;
+  display: inline-block;
+  margin-top: 1em;
+}
+
+.legend { 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  list-style: none;
+  padding: 0; 
+  margin: 0; 
+}
+
+.legend li { 
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.legend .swatch { 
+  width: 1em;
+  height: 1em;
+  background-color: var(--color);
+  display: inline-block;
+  border-radius: 0.2em;
+}
+
 /* CV */
 
 .cv-page { 
@@ -273,11 +312,4 @@ button:hover {
   margin: 0
 }
 
-#projects-plot { 
-  display: block;
-  margin: 2em auto;
-  width: 12em;
-  max-width: 100%;
-  height: auto
-}
 
