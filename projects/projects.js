@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     titleElement.textContent += ` (${projects.length})`;
   }
 
-  let selectedIndex = -1; // track which pie slice (if any) is selected
+  let selectedIndex = -1; 
 
   function renderPieChart(projectsGiven) {
     const svg = d3.select('svg');
@@ -95,11 +95,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
   }
 
-  // initial render
   renderProjects(projects, projectsContainer, 'h2');
   renderPieChart(projects);
-
-  // === SEARCH REACTIVITY ===
   searchInput.addEventListener('input', event => {
     const query = event.target.value.toLowerCase();
     const filteredProjects = projects.filter(project => {
@@ -107,7 +104,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       return values.includes(query);
     });
 
-    selectedIndex = -1; // reset selection
+    selectedIndex = -1;
     renderProjects(filteredProjects, projectsContainer, 'h2');
     renderPieChart(filteredProjects);
   });
