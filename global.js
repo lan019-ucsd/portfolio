@@ -88,8 +88,6 @@ form?.addEventListener('submit', function(event) {
   location.href = url;
 }); 
 
-a.classList.toggle('current', a.host === location.host && a.pathname === location.pathname);
-
 
 /* Fetch JSON */
 export async function fetchJSON(path) { 
