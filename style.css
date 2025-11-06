@@ -93,21 +93,6 @@ html {
 }
 
 .car-gallery img { 
-  border-radius: 0.5em;
-  width: 100%;
-  height: auto;
-}
-
-
-/* Home */
-.car-gallery { 
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 0.5em;
-  justify-items: center;
-}
-
-.car-gallery img { 
   display: block;
   border-radius: 0.5em;
   width: 100%;

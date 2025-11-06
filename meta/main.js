@@ -48,17 +48,23 @@ function renderCommitInfo(data, commits) {
   // Create the dl element
   const dl = d3.select('#stats').append('dl').attr('class', 'stats');
 
-  // Add total LOC
-  dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
-  dl.append('dd').text(data.length);
-
   // Add total commits
   dl.append('dt').text('Total commits');
   dl.append('dd').text(commits.length);
 
+  // Add totle files 
   dl.append('dt').text('Number of files');
   dl.append('dd').text(d3.groups(data, d => d.file).length);
 
+  // Add total LOC
+  dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
+  dl.append('dd').text(data.length);
+
+  // Max Depth 
+  dl.append('dt').text('Max depth');
+  dl.append('dd').text(d3.max(data, d => d.depth))
+
+  // Longest Line
   dl.append('dt').text('Longest file (lines)');
   const fileLengths = d3.rollups(
     data,
@@ -72,9 +78,6 @@ function renderCommitInfo(data, commits) {
   dl.append('dt').text('Average file length');
   const avgFileLength = d3.mean(fileLengths, d => d[1]);
   dl.append('dd').text(avgFileLength.toFixed(1));
-
-  dl.append('dt').text('Max depth');
-  dl.append('dd').text(d3.max(data, d => d.depth))
 }
 
 const data = await loadData();
