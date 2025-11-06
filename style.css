@@ -307,20 +307,26 @@ button:hover {
 /* Meta */
 
 .stats{
-  display: grid;
-  grid-template-columns: max-content auto;
-  gap: 0.4em 1em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em 2em;
   margin-top: 1em;
 }
 
-.stats dt { 
-  font-weight: bold;
-}
-
-.stats dd { 
+.stats dt .stats dd { 
+  display: inline;
   margin: 0;
 }
 
+.stats dl { 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em 2em
+}
+
+.stats dt:: after { 
+  content: ': ';
+}
 /* Github */
 
 #profile-stats dl { 
