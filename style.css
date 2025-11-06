@@ -319,6 +319,23 @@ button:hover {
   background-color: oklch(from oklch(48.478% 0.10981 21.983) 75% 40% h);
 }
 
+/* Meta */
+
+.stats{
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.4em 1em;
+  margin-top: 1em;
+}
+
+.stats dt { 
+  font-weight: bold;
+}
+
+.stats dd { 
+  margin: 0;
+}
+
 /* Github */
 
 #profile-stats dl { 
