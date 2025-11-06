@@ -306,27 +306,25 @@ button:hover {
 
 /* Meta */
 
-.stats{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em 2em;
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem 1.5rem;
   margin-top: 1em;
+  text-align: center;
 }
 
-.stats dt .stats dd { 
-  display: inline;
+.stats dt { 
+  font-weight: bold;
+  grid-row: 1;
+}
+
+.stats dd { 
+  grid-row: 2;
   margin: 0;
+  font-size: 1.1em;
 }
 
-.stats dl { 
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em 2em
-}
-
-.stats dt::after { 
-  content: ': ';
-}
 
 /* Github */
 
