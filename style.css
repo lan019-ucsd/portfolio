@@ -144,7 +144,7 @@ html {
 .container { 
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
   flex-wrap: nowrap;
@@ -318,6 +318,8 @@ button {
 button:hover { 
   background-color: oklch(from oklch(48.478% 0.10981 21.983) 75% 40% h);
 }
+
+
 
 /* Github */
 

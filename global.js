@@ -11,9 +11,10 @@ const BASE_PATH = location.hostname === 'localhost' || location.hostname === '12
 let pages = [
   { url: '', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
-  { url: 'project2/', title: 'Project 2'},  // trailing slash!
-  { url: 'contact/', title: 'Contact'},
+  { url: 'project2/', title: 'Project 2'},  
   { url: 'cv/', title: 'CV'},
+  { url: 'contact/', title: 'Contact'},
+  { url: 'meta/', title: 'Meta'},
   { url: 'https://github.com/lan019-ucsd/portfolio/', title: 'Profile'}
 ];
 
@@ -86,6 +87,8 @@ form?.addEventListener('submit', function(event) {
   const url = `${form.action}?${params.join(`&`)}`;
   location.href = url;
 }); 
+
+a.classList.toggle('current', a.host === location.host && a.pathname === location.pathname);
 
 
 /* Fetch JSON */
