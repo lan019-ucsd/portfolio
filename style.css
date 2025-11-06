@@ -324,9 +324,10 @@ button:hover {
   gap: 1em 2em
 }
 
-.stats dt:: after { 
+.stats dt::after { 
   content: ': ';
 }
+
 /* Github */
 
 #profile-stats dl { 
