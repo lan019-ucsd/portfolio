@@ -19,9 +19,9 @@ function processCommits(data) {
   return d3
     .groups(data, (d) => d.commit)
     .map(([commit, lines]) => {
-      let first = lines[0];
-      let { author, date, time, timezone, datetime } = first;
-      let ret = {
+      const first = lines[0];
+      const { author, date, time, timezone, datetime } = first;
+      const ret = {
         id: commit,
         url: 'https://github.com/vis-society/lab-7/commit/' + commit,
         author,
@@ -83,7 +83,7 @@ function renderCommitInfo(data, commits) {
 function renderScatterPlot(data, commits) { 
   const width = 1000;
   const height = 600;
-  const margin = { top: 10, right: 10, bottom: 10, left: 50};
+  const margin = { top: 10, right: 10, bottom: 30, left: 50};
 
   const useableArea = { 
     top: margin.top,
@@ -103,22 +103,27 @@ function renderScatterPlot(data, commits) {
   const xScale = d3
     .scaleTime()
     .domain(d3.extent(commits, (d) => d.datetime))
-    .range([0, width])
+    .range([useableArea.left, useableArea.right])
     .nice();
 
   const yScale = d3
     .scaleLinear()
     .domain([0, 24])
-    .range([height, 0]);
+    .range([useableArea.bottom, useableArea.top]);
+
+  const xAxis = d3.axisBottom(xScale);
+  const yAxis = d3.axisLeft(yScale)
+    .tickFormat(d => String(d % 24).padStart(2, '0') + ':00');
 
   svg
     .append('g')
-    .attr('transform', `translate(0, ${usableArea.bottom}`)
+    .attr('transform', `translate(0, ${useableArea.bottom}`)
     .call(xAxis)
 
   svg
     .append('g')
-    .attr('transform', `translate(${usableArea.left}, 0)`)
+    .attr('transform', `translate(${useableArea.left}, 0)`)
+    .call(yAxis)
 
   const dots = svg.append('g').attr('class', 'dots');
 
@@ -134,6 +139,7 @@ function renderScatterPlot(data, commits) {
 
 const data = await loadData();
 const commits = processCommits(data);
+ 
 console.log(commits);
 
 renderCommitInfo(data, commits);
