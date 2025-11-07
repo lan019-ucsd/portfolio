@@ -325,6 +325,15 @@ button:hover {
   font-size: 1.1em;
 }
 
+.gridlines line { 
+  stroke: #ccc;
+  stroke-opacity: 0.5;
+  shape-rendering: crispEdges;
+}
+
+.gridlines path { 
+  stroke: none
+}
 
 /* Github */
 
