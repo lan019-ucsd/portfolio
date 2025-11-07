@@ -111,6 +111,17 @@ function renderScatterPlot(data, commits) {
     .domain([0, 24])
     .range([useableArea.bottom, useableArea.top]);
 
+  const gridlines = svg
+    .append('g')
+    .attr('class', 'gridlines')
+        .attr('transform', `translate(${useableArea.left}, 0)`);
+
+  gridlines.call(
+    d3.axisLeft(yScale)
+      .tickFormat('')
+      .tickSize(-useableArea.width)
+  );
+
   const xAxis = d3.axisBottom(xScale);
   const yAxis = d3.axisLeft(yScale)
     .tickFormat(d => String(d % 24).padStart(2, '0') + ':00');
