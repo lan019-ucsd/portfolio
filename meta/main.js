@@ -140,7 +140,7 @@ function renderScatterPlot(data, commits) {
 const data = await loadData();
 const commits = processCommits(data);
  
-console.log(commits);
+console.log(commits.map(d => d.datetime, d => d.hourFrac));
 
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
