@@ -117,13 +117,13 @@ function renderScatterPlot(data, commits) {
 
   svg
     .append('g')
-    .attr('transform', `translate(0, ${useableArea.bottom}`)
-    .call(xAxis)
+    .attr('transform', `translate(0, ${useableArea.bottom})`)
+    .call(xAxis);
 
   svg
     .append('g')
     .attr('transform', `translate(${useableArea.left}, 0)`)
-    .call(yAxis)
+    .call(yAxis);
 
   const dots = svg.append('g').attr('class', 'dots');
 
