@@ -111,12 +111,21 @@ function renderScatterPlot(data, commits) {
     .domain([0, 24])
     .range([useableArea.bottom, useableArea.top]);
 
-  const gridlines = svg
+  svg
     .append('g')
     .attr('class', 'gridlines')
-    .attr('transform', `translate(${useableArea.left}, 0)`);
+    .attr('transform', `translate(${useableArea.left}, 0)`)
+    .selectAll('line')
+    .data(d3.range(0, 25))
+    .join('line')
+    .attr('x1', 0)
+    .attr('x2', useableArea.width)
+    .attr('y1', d => yScale(d))
+    .attr('y2', d => yScale(d))
+    .attr('stroke', d => d < 6 || d > 18 ? 'steelblue' : 'orange')  // night vs day
+    .attr('stroke-width', 1)
+    .attr('stroke-opacity', 0.3);
 
-// Create gridlines as an axis with no labels and full-width ticks
   gridlines.call(d3.axisLeft(yScale).tickFormat('').tickSize(-useableArea.width));
 
   const xAxis = d3.axisBottom(xScale);
@@ -126,7 +135,12 @@ function renderScatterPlot(data, commits) {
   svg
     .append('g')
     .attr('transform', `translate(0, ${useableArea.bottom})`)
-    .call(xAxis);
+    .call(xAxis)
+    .selectAll('text')
+    .attr('text-anchor', 'end')
+    .attr('transform', 'rotate(-45')
+    .attr('dx', '-0.5em')
+    .attr('dy', '0.25em');
 
   svg
     .append('g')
@@ -134,6 +148,8 @@ function renderScatterPlot(data, commits) {
     .call(yAxis);
 
   const dots = svg.append('g').attr('class', 'dots');
+   
+
 
   dots
     .selectAll('circle')

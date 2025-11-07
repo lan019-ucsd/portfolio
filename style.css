@@ -326,7 +326,7 @@ button:hover {
 }
 
 .gridlines line { 
-  stroke: #ccc;
+  stroke: #aaa;
   stroke-opacity: 0.5;
   shape-rendering: crispEdges;
 }
