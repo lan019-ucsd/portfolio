@@ -114,13 +114,10 @@ function renderScatterPlot(data, commits) {
   const gridlines = svg
     .append('g')
     .attr('class', 'gridlines')
-        .attr('transform', `translate(${useableArea.left}, 0)`);
+    .attr('transform', `translate(${usableArea.left}, 0)`);
 
-  gridlines.call(
-    d3.axisLeft(yScale)
-      .tickFormat('')
-      .tickSize(-useableArea.width)
-  );
+// Create gridlines as an axis with no labels and full-width ticks
+  gridlines.call(d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width));
 
   const xAxis = d3.axisBottom(xScale);
   const yAxis = d3.axisLeft(yScale)
