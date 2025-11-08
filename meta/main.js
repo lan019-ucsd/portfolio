@@ -83,9 +83,9 @@ function renderCommitInfo(data, commits) {
 function renderScatterPlot(data, commits) { 
   const width = 1000;
   const height = 600;
-  const margin = { top: 10, right: 10, bottom: 30, left: 50};
+  const margin = { top: 10, right: 10, bottom: 60, left: 50};
 
-  const useableArea = { 
+  const usableArea = { 
     top: margin.top,
     right: width - margin.right,
     bottom: height - margin.bottom,
@@ -94,69 +94,61 @@ function renderScatterPlot(data, commits) {
     height: height - margin.top - margin.bottom,
   };
 
-  const svg = d3
-    .select('#chart')
+  const svg = d3.select('#chart')
     .append('svg')
     .attr('viewBox', `0 0 ${width} ${height}`)
     .style('overflow', 'visible');
 
-  const xScale = d3
-    .scaleTime()
-    .domain(d3.extent(commits, (d) => d.datetime))
-    .range([useableArea.left, useableArea.right])
+  const xScale = d3.scaleTime()
+    .domain(d3.extent(commits, d => d.datetime))
+    .range([usableArea.left, usableArea.right])
     .nice();
 
-  const yScale = d3
-    .scaleLinear()
+  const yScale = d3.scaleLinear()
     .domain([0, 24])
-    .range([useableArea.bottom, useableArea.top]);
+    .range([usableArea.bottom, usableArea.top]);
 
-  svg
-    .append('g')
+  // Horizontal gridlines
+  const gridlines = svg.append('g')
     .attr('class', 'gridlines')
-    .attr('transform', `translate(${useableArea.left}, 0)`)
-    .selectAll('line')
+    .attr('transform', `translate(${usableArea.left},0)`);
+
+  gridlines.selectAll('line')
     .data(d3.range(0, 25))
     .join('line')
     .attr('x1', 0)
-    .attr('x2', useableArea.width)
+    .attr('x2', usableArea.width)
     .attr('y1', d => yScale(d))
     .attr('y2', d => yScale(d))
-    .attr('stroke', d => d < 6 || d > 18 ? 'steelblue' : 'orange')  // night vs day
+    .attr('stroke', d => d < 6 || d > 18 ? 'steelblue' : 'orange')
     .attr('stroke-width', 1)
     .attr('stroke-opacity', 0.3);
 
-  gridlines.call(d3.axisLeft(yScale).tickFormat('').tickSize(-useableArea.width));
-
+  // Axes
   const xAxis = d3.axisBottom(xScale);
   const yAxis = d3.axisLeft(yScale)
-    .tickFormat(d => String(d % 24).padStart(2, '0') + ':00');
+    .tickFormat(d => String(d % 24).padStart(2,'0') + ':00');
 
-  svg
-    .append('g')
-    .attr('transform', `translate(0, ${useableArea.bottom})`)
+  svg.append('g')
+    .attr('transform', `translate(0, ${usableArea.bottom})`)
     .call(xAxis)
     .selectAll('text')
     .attr('text-anchor', 'end')
-    .attr('transform', 'rotate(-45')
+    .attr('transform', 'rotate(-45)')
     .attr('dx', '-0.5em')
     .attr('dy', '0.25em');
 
-  svg
-    .append('g')
-    .attr('transform', `translate(${useableArea.left}, 0)`)
+  svg.append('g')
+    .attr('transform', `translate(${usableArea.left},0)`)
     .call(yAxis);
 
+  // Dots
   const dots = svg.append('g').attr('class', 'dots');
-   
-
-
-  dots
-    .selectAll('circle')
+  dots.selectAll('circle')
     .data(commits)
     .join('circle')
-    .attr('cx', (d) => xScale(d.datetime))
-    .attr('cy', (d) => yScale(d.hourFrac))
+    .attr('cx', d => xScale(d.datetime))
+    .attr('cy', d => yScale(d.hourFrac))
     .attr('r', 5)
     .attr('fill', 'steelblue');
 }
