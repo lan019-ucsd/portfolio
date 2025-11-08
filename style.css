@@ -309,8 +309,9 @@ button:hover {
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-  gap: 0.2rem 1rem;
-  margin-top: 1em;
+  gap: 0.2rem 0.3rem;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
   text-align: center;
 }
 
@@ -325,6 +326,14 @@ button:hover {
   font-size: 1.1em;
 }
 
+#stats-container { 
+  background-color: #8597bc;
+  padding: 1rem 1rem;
+  border-radius: 10px;
+  display: grid;
+  margin-bottom: 1rem;
+}
+
 .gridlines line { 
   stroke: #aaa;
   stroke-opacity: 0.5;
@@ -333,6 +342,22 @@ button:hover {
 
 .gridlines path { 
   stroke: none;
+}
+
+circle.selected { 
+  fill: #ff6b6b;
+}
+
+.selection { 
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5.3;
+  animation: marching-ants 2s linear infinite
+}
+
+@keyframes marching-ants { 
+  to { stroke-dashoffset: -8; }
 }
 
 .tooltip { 
@@ -390,7 +415,6 @@ circle {
 circle:hover {
   transform: scale(1.5);
 }
-
 
 /* Github */
 
