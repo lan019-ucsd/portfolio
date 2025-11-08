@@ -91,7 +91,7 @@ function renderTooltipContent(commit) {
   link.href = commit.url;
   link.textContent = commit.id;
   date.textContent = commit.datetime?.toLocaleString('en', {
-    dateStyle: 'full', timeStyle: 'short'});
+    dateStyle: 'full'});
   author.textContent = commit.author;
   lines.textContent = commit.totalLines;
 }
@@ -166,7 +166,39 @@ function renderScatterPlot(data, commits) {
     .attr('cx', d => xScale(d.datetime))
     .attr('cy', d => yScale(d.hourFrac))
     .attr('r', 5)
-    .attr('fill', 'steelblue');
+    .attr('fill', 'steelblue')
+    .on('mouseenter', (event, commit) => { 
+      renderTooltipContent(commit);
+      const tooltip = document.getElementById('commit-tooltip');
+      tooltip.style.display ='block';
+      const x = event.clientX + 10;
+      const y = event.clientY + 10;
+      const pad = 8;
+      const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      const rect = tooltip.getBoundingClientRect();
+      const left = Math.min(x, vw - rect.width - pad);
+      const top  = Math.min(y, vh - rect.height - pad);
+      tooltip.style.left = `${Math.max(left, pad)}px`;
+      tooltip.style.top  = `${Math.max(top, pad)}px`; 
+    })
+    .on('mousemove', (event) => { 
+      const tooltip = document.getElementById('commit-tooltip');
+      const x = event.clientX + 10;
+      const y = event.clientY + 10;
+      const pad = 8;
+      const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      const rect = tooltip.getBoundingClientRect();
+      const left = Math.min(x, vw - rect.width - pad);
+      const top  = Math.min(y, vh - rect.height - pad);
+      tooltip.style.left = `${Math.max(left, pad)}px`;
+      tooltip.style.top  = `${Math.max(top, pad)}px`; 
+    })
+    .on('mouseleave', () => { 
+      const tooltip = document.getElementById('commit-tooltip');
+      tooltip.style.display = 'none';
+    });
 }
 
 const data = await loadData();
