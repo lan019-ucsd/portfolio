@@ -49,11 +49,11 @@ function renderCommitInfo(data, commits) {
   const dl = d3.select('#stats').append('dl').attr('class', 'stats');
 
   // Add total commits
-  dl.append('dt').text('Total commits');
+  dl.append('dt').text('Commits');
   dl.append('dd').text(commits.length);
 
   // Add totle files 
-  dl.append('dt').text('Number of files');
+  dl.append('dt').text('Files');
   dl.append('dd').text(d3.groups(data, d => d.file).length);
 
   // Add total LOC
@@ -65,7 +65,7 @@ function renderCommitInfo(data, commits) {
   dl.append('dd').text(d3.max(data, d => d.depth))
 
   // Longest Line
-  dl.append('dt').text('Longest file (lines)');
+  dl.append('dt').text('Longest line');
   const fileLengths = d3.rollups(
     data,
     v => d3.max(v, d => d.line),
@@ -75,9 +75,25 @@ function renderCommitInfo(data, commits) {
   const longestFile = d3.greatest(fileLengths, d => d[1]);
   dl.append('dd').text(`${longestFile[0]} (${longestFile[1]} lines)`);
 
-  dl.append('dt').text('Average file length');
+  dl.append('dt').text('Max Lines');
   const avgFileLength = d3.mean(fileLengths, d => d[1]);
   dl.append('dd').text(avgFileLength.toFixed(1));
+}
+
+function renderTooltipContent(commit) {
+  const link = document.getElementById('commit-link');
+  const date = document.getElementById('commit-date');
+  const author = document.getElementById('commit-author');
+  const lines = document.getElementById('commit-lines');
+
+  if (!commit || Object.keys(commit).length === 0) return;
+
+  link.href = commit.url;
+  link.textContent = commit.id;
+  date.textContent = commit.datetime?.toLocaleString('en', {
+    dateStyle: 'full', timeStyle: 'short'});
+  author.textContent = commit.author;
+  lines.textContent = commit.totalLines;
 }
 
 function renderScatterPlot(data, commits) { 
@@ -85,7 +101,7 @@ function renderScatterPlot(data, commits) {
   const height = 600;
   const margin = { top: 10, right: 10, bottom: 60, left: 50};
 
-  const usableArea = { 
+  const useableArea = { 
     top: margin.top,
     right: width - margin.right,
     bottom: height - margin.bottom,
@@ -101,23 +117,23 @@ function renderScatterPlot(data, commits) {
 
   const xScale = d3.scaleTime()
     .domain(d3.extent(commits, d => d.datetime))
-    .range([usableArea.left, usableArea.right])
+    .range([useableArea.left, useableArea.right])
     .nice();
 
   const yScale = d3.scaleLinear()
     .domain([0, 24])
-    .range([usableArea.bottom, usableArea.top]);
+    .range([useableArea.bottom, useableArea.top]);
 
   // Horizontal gridlines
   const gridlines = svg.append('g')
     .attr('class', 'gridlines')
-    .attr('transform', `translate(${usableArea.left},0)`);
+    .attr('transform', `translate(${useableArea.left},0)`);
 
   gridlines.selectAll('line')
     .data(d3.range(0, 25))
     .join('line')
     .attr('x1', 0)
-    .attr('x2', usableArea.width)
+    .attr('x2', useableArea.width)
     .attr('y1', d => yScale(d))
     .attr('y2', d => yScale(d))
     .attr('stroke', d => d < 6 || d > 18 ? 'steelblue' : 'orange')
@@ -130,7 +146,7 @@ function renderScatterPlot(data, commits) {
     .tickFormat(d => String(d % 24).padStart(2,'0') + ':00');
 
   svg.append('g')
-    .attr('transform', `translate(0, ${usableArea.bottom})`)
+    .attr('transform', `translate(0, ${useableArea.bottom})`)
     .call(xAxis)
     .selectAll('text')
     .attr('text-anchor', 'end')
@@ -139,7 +155,7 @@ function renderScatterPlot(data, commits) {
     .attr('dy', '0.25em');
 
   svg.append('g')
-    .attr('transform', `translate(${usableArea.left},0)`)
+    .attr('transform', `translate(${useableArea.left},0)`)
     .call(yAxis);
 
   // Dots
