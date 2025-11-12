@@ -11,7 +11,6 @@ const BASE_PATH = location.hostname === 'localhost' || location.hostname === '12
 let pages = [
   { url: '', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
-  { url: 'project2/', title: 'Project 2'},  
   { url: 'cv/', title: 'CV'},
   { url: 'contact/', title: 'Contact'},
   { url: 'meta/', title: 'Meta'},
@@ -112,11 +111,15 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
   projects.forEach(project => { 
     const article = document.createElement('article');
+
+    // Wrap the content in a link if project.url exists
     article.innerHTML = `
-      <${headingLevel}>${project.title || 'Untitled Project'}</${headingLevel}>
-      <p class = 'year'><strong>${project.year || ''}</strong></p>
-      <img src = "${project.image || 'default.jpg'}" alt = "${project.title || 'Project Image'}">
-      <p> ${project.description || 'No description available.'} </p>
+      <a href="${project.url || '#'}" target="_blank">
+        <${headingLevel}>${project.title || 'Untitled Project'}</${headingLevel}>
+        <p class="year"><strong>${project.year || ''}</strong></p>
+        <img src="${project.image || 'default.jpg'}" alt="${project.title || 'Project Image'}">
+        <p>${project.description || 'No description available.'}</p>
+      </a>
     `;
     containerElement.appendChild(article);
   });

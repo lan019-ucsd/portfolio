@@ -3,13 +3,15 @@
         "title": "Mapping Abortion Access Across the U.S (Guttmacher Institute, U.S)",
         "year": "2025",
         "image": "https://lan019-ucsd.github.io/portfolio/images/abortion.jpg",
-        "description": "This project explores key data points related to abortion in the U.S, using data from Guttmacher Institute's documentation on abortion numbers, rates, and related indicators. It includes visualizations and analysis to further understand the variation of healthcare and abortion access across regions. "
+        "description": "This project explores key data points related to abortion in the U.S, using data from Guttmacher Institute's documentation on abortion numbers, rates, and related indicators. It includes visualizations and analysis to further understand the variation of healthcare and abortion access across regions. ",
+        "url": "https://lan019-ucsd.github.io/portfolio/project2/index.html"
     },
     {
-        "title": "Dolor rem architecto neque.",
+        "title": "Biking in Boston (Geospatial Visualization)",
         "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Sed modi, error doloribus facilis perferendis saepe eaque rem fugiat itaque corporis provident delectus officia mollitia ad unde consectetur esse, eligendi voluptas minima! Perferendis sunt libero distinctio at totam vel!"
+        "description": "This interactive map visualizes bike traffic patterns across Boston, Massachusetts. It uses D3.js and Mapbox to explore departures vs. arrivals, hourly traffic trends, and station usage.",
+        "url": "https://lan019-ucsd.github.io/Biking-In-Boston/"
     },
     {
         "title": "Ipsam maiores soluta laborum.",

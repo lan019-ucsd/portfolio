@@ -251,7 +251,6 @@ function brushed(event, commits) {
   renderLanguageBreakdown(selection, commits);
 }
 
-// MAIN EXECUTION
 const data = await loadData();
 const commits = processCommits(data);
 

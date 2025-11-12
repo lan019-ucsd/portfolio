@@ -126,6 +126,17 @@ html {
   display: block;
 }
 
+.projects article a { 
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.projects article a:hover { 
+  text-decoration: none;
+  opacity: 0.8;
+}
+
 .container { 
   display: flex;
   align-items: center;
