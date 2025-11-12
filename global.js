@@ -5,7 +5,7 @@ function $$(selector, context = document) {
 }
 
 const BASE_PATH = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-  ? '/' 
+  ? '../' 
   : '/portfolio/';
 
 let pages = [
@@ -16,6 +16,10 @@ let pages = [
   { url: 'meta/', title: 'Meta'},
   { url: 'https://github.com/lan019-ucsd/portfolio/', title: 'Profile'}
 ];
+
+if (location.pathname.includes('project2')) {
+  pages = pages.filter(p => p.title !== 'Project 2');
+}
 
 /* Create Nav */
 let nav = document.createElement('nav');
@@ -32,7 +36,9 @@ for (let p of pages) {
 /* Highlight current link */
 let navLinks = $$('nav a');
 for (let a of navLinks) { 
-  a.classList.toggle('current', a.host === location.host && a.pathname === location.pathname);
+  if (location.pathname.endsWith(a.pathname)) {
+    a.classList.add('current');
+  }
 }
 
 /* Dark Mode Switch */

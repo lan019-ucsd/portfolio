@@ -7,7 +7,7 @@
         "url": "https://lan019-ucsd.github.io/portfolio/project2/index.html"
     },
     {
-        "title": "Biking in Boston (Geospatial Visualization)",
+        "title": "Biking in Boston (Geospatial Visualization, MapBox GL JS)",
         "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "This interactive map visualizes bike traffic patterns across Boston, Massachusetts. It uses D3.js and Mapbox to explore departures vs. arrivals, hourly traffic trends, and station usage.",
